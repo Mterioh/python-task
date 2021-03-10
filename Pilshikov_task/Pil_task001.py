@@ -10,7 +10,7 @@ calculating the factorial
 
 def calculate_factorial(number: int) -> int:
     """
-    This function calculates factorial of entered number
+    This function calculate value due to description in Pilschikov book, task 1.1, page 7
     :param number: type integer
     :return: factorial number type integer
     """

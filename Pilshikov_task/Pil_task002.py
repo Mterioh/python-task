@@ -11,7 +11,7 @@ import math
 
 def formula_task_pilshikov_1_14(number: int) -> float:
     """
-    This function calculate by formula from task Pilshikov
+    This function calculate value due to description in Pilschikov book, task 1.14, page 8
     :param number: type integer
     :return: number type float
     """
