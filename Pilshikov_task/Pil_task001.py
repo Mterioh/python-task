@@ -20,6 +20,6 @@ def calculate_factorial(number: int) -> int:
     return result
 
 
-input_numb = int(input("Enter an integer to calculate factorial: "))
-answer = calculate_factorial(input_numb)
+enter_number = int(input("Enter an integer to calculate factorial: "))
+answer = calculate_factorial(enter_number)
 print('Factorial = ', answer)
