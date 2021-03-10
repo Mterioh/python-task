@@ -10,9 +10,9 @@ calculating the factorial
 
 def calculate_factorial(number: int) -> int:
     """
-        input parameter: number type int
-        This function calculates factorial of entered number
-        output parameter: factorial number type int
+    This function calculates factorial of entered number
+    :param number: type integer
+    :return: factorial number type integer
     """
     result = 1
     for number_series_element in range(result, number + 1):
