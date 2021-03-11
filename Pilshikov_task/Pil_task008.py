@@ -10,7 +10,6 @@ are any of the digits of a three-digit number the same
 
 def check_number_digit(number: int) -> bool:
     """
-    check number of digit
     :param number: type integer
     :return: True if condition is met, else False
     """
