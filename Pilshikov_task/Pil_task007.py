@@ -29,10 +29,10 @@ def calculate_perimeter_polygon(side_len: float, radius: float) -> float:
     return side_len * radius
 
 
-input_quantity_sides = float(input("This program calculate square and perimeter polygon\n"
+enter_quantity_sides = float(input("This program calculate square and perimeter polygon\n"
                                    "Enter quantity sides: "))
-input_side_len = float(input("Enter side length: "))
-input_radius = float(input("Enter the radius of the polygon: "))
-square = calculate_square_polygon(input_quantity_sides, input_side_len, input_radius)
-perimeter = calculate_perimeter_polygon(input_side_len, input_radius)
+enter_side_len = float(input("Enter side length: "))
+enter_radius = float(input("Enter the radius of the polygon: "))
+square = calculate_square_polygon(enter_quantity_sides, enter_side_len, enter_radius)
+perimeter = calculate_perimeter_polygon(enter_side_len, enter_radius)
 print('Square polygon:', square, "\nPerimeter polygon ", perimeter)
