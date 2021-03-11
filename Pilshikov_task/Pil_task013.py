@@ -7,28 +7,45 @@ delete excess  symbols and search symbols 'k', 'e', 'y'
 """
 
 
-def delete_excess_symbols(string):
-    """This function delete excess symbols in enter string"""
-    blank_line = ''
-    for element_string in string:
-        if element_string not in blank_line and element_string != ' ':
-            blank_line += element_string
-    return blank_line
+def delete_excess_symbols(words: str):
+    """
+    This function delete excess symbols in enter string
+    :param words: type string
+    :return: string without duplicate characters
+    """
+    empty_string = ''
+    for element_word in words:
+        if element_word not in empty_string and element_word != ' ':
+            empty_string += element_word
+    return empty_string
 
 
-def search_in_blank_line(string):
-    """This function search specific letters"""
+def search_in_blank_line(words: str):
+    """
+    This function search specific letters
+    :param words: type string
+    """
     # call function clean enter string
-    blank_line = delete_excess_symbols(string)
+    empty_string = delete_excess_symbols(words)
     counter_existing_letters = 0
-    for index_blank_line in range(len(blank_line)):
-        for index_existing_letters in range(len(existing_letters)):
-            if blank_line[index_blank_line] == existing_letters[index_existing_letters]:
+    for index_empty_string in range(len(empty_string)):
+        for index_existing_letters in range(len(EXISTING_LETTER)):
+            if empty_string[index_empty_string] == EXISTING_LETTER[index_existing_letters]:
                 counter_existing_letters += 1
-    print('Yes' if counter_existing_letters == 3 else 'No')
+    return counter_existing_letters
 
 
-input_str = input("This program search in enter string symbols 'k', 'e', 'y'\n"
-                  "Please enter string: ")
-existing_letters = 'key'
-search_in_blank_line(input_str)
+def result(counter: int):
+    """
+    :param counter: number type integer
+    """
+    if counter == 3:
+        print('Yes')
+    else:
+        print('No')
+
+
+enter_word = input("This program search in enter string symbols 'k', 'e', 'y'\n"
+                   "Please enter string: ")
+EXISTING_LETTER = 'key'
+result(search_in_blank_line(enter_word))
