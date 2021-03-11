@@ -10,7 +10,7 @@ Task 2.10 page 12
 
 def checking_condition(number: float) -> str:
     """
-    This function checking whether the number is contained in the specified interval
+    This function calculate value due to description in Pilschikov book, task 2.10, page 12
     :param number: type float
     :return: answer "Yes" or "No"
     """
