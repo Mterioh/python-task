@@ -21,6 +21,20 @@ def sum_diagonal_matrix(matrix: list) -> int:
     return result
 
 
+def composition_diagonal_matrix(matrix: list) -> int:
+    """
+    This function calculate sum diagonals matrix (general case)
+    :param matrix: nested list (matrix MxN)
+    :return: sum diagonal matrix
+    """
+    result = 0
+    for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+            if i == j:
+                result *= matrix[i][j]
+    return result
+
+
 def additions_matrix(matrix_1: list, matrix_2: list, M: int, N: int) -> list:
     """
     This function additions 2 matrix (general case)
@@ -72,4 +86,3 @@ def multiplication_matrix(matrix_one: list, matrix_two: list) -> list:
         result_matrix.append(temp_matrix)
         temp_matrix = []
     return result_matrix
-
