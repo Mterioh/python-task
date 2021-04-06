@@ -11,6 +11,7 @@ def equalization():
     """
         determine which entered number is greater and equalize the numbers with zeros
     """
+
     if len(one_list_number) > len(two_list_number):
         quantity_zero = len(one_list_number) - len(two_list_number)
         for i in range(quantity_zero):
@@ -27,21 +28,12 @@ def operation_addition():
         This function adds numbers in a column
     """
     quantity_step = len(one_list_number)
+    overhead = 0
     for i in range(quantity_step):
-        sum_two_number = two_list_number[i] + one_list_number[i]
-        temp_sum_two_number = []
-        if sum_two_number > 9:
-            while sum_two_number > 0:
-                temp_sum_two_number.append(sum_two_number % 10)
-                sum_two_number //= 10
-            result.append(temp_sum_two_number[0])
-            if i == quantity_step - 1:
-                result.append(temp_sum_two_number[1])
-            else:
-                one_list_number[i + 1] += 1
-        else:
-            result.append(sum_two_number)
-        temp_sum_two_number.clear()
+        digit = two_list_number[i] + one_list_number[i] + overhead
+        result.append(digit % 10)
+        overhead = digit // 10
+    result.append(overhead)
 
 
 number_1 = str(input("Please, enter number 1: "))
