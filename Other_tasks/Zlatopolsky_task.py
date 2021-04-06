@@ -21,6 +21,8 @@ def divisors(upper_bound: int, bottom_line: int) -> list:
         for j in range(1, i + 1):
             if i % j == 0:
                 counter_divisors += 1
+            if counter_divisors > 5:
+                continue
         if counter_divisors == 5:
             result.append(i)
         counter_divisors = 0

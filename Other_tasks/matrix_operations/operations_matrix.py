@@ -13,11 +13,10 @@ def sum_diagonal_matrix(matrix: list) -> int:
     :param matrix: nested list (matrix MxN)
     :return: sum diagonal matrix
     """
+    index_matrix = len(matrix)
     result = 0
-    for i in range(len(matrix)):
-        for j in range(len(matrix[0])):
-            if i == j:
-                result += matrix[i][j]
+    for i in range(index_matrix):
+        result += matrix[i][i]
     return result
 
 
@@ -28,27 +27,25 @@ def composition_diagonal_matrix(matrix: list) -> int:
     :return: sum diagonal matrix
     """
     result = 0
-    for i in range(len(matrix)):
-        for j in range(len(matrix[0])):
-            if i == j:
-                result *= matrix[i][j]
+    index_matrix = len(matrix)
+    for i in range(index_matrix):
+        result *= matrix[i][i]
     return result
 
 
-def additions_matrix(matrix_1: list, matrix_2: list, M: int, N: int) -> list:
+def additions_matrix(matrix_one: list, matrix_two: list) -> list:
     """
     This function additions 2 matrix (general case)
-    :param matrix_1: nested list (matrix MxN)
-    :param matrix_2: nested list (matrix MxN)
-    :param M: size string
-    :param N: size column
+    :param matrix_one: matrix MxN
+    :param matrix_two: matrix MxN
     :return: sum matrix
     """
-    result = [[0 for element_M in range(M)] for element_N in range(N)]
-    for i in range(len(matrix_1)):
-        for j in range(len(matrix_1[0])):
-            result[i][j] = matrix_1[i][j] + matrix_2[i][j]
-    return result
+    rows_count = len(matrix_one)
+    columns_count = len(matrix_two[0])
+    for i in range(rows_count):
+        for j in range(columns_count):
+            matrix_one[i][j] += matrix_two[i][j]
+    return matrix_one
 
 
 def transpose_matrix(matrix: list) -> list:
@@ -58,13 +55,13 @@ def transpose_matrix(matrix: list) -> list:
     :return: transpose matrix
     """
     result = []
-    main_list = len(matrix)
-    nested_list = len(matrix[0])
-    for j in range(nested_list):
-        temp_matrix = []
-        for i in range(main_list):
-            temp_matrix = temp_matrix + [matrix[i][j]]
-        result = result + [temp_matrix]
+    rows_count = len(matrix)
+    columns_count = len(matrix[0])
+    for j in range(columns_count):
+        row = []
+        for i in range(rows_count):
+            row = row + [matrix[i][j]]
+        result = result + [row]
     return result
 
 
@@ -75,14 +72,17 @@ def multiplication_matrix(matrix_one: list, matrix_two: list) -> list:
     :param matrix_two: matrix size MxN
     :return: result multiplication matrix
     """
-    temp_matrix = []
-    result_matrix = []
-    for i in range(len(matrix_one)):
-        for j in range(len(matrix_two[0])):
-            sums = 0
-            for k in range(len(matrix_two)):
-                sums = sums + (matrix_one[i][k] * matrix_two[k][j])
-            temp_matrix.append(sums)
-        result_matrix.append(temp_matrix)
-        temp_matrix = []
-    return result_matrix
+    rows_count = len(matrix_one)
+    columns_count = len(matrix_two[0])
+    element = []
+    result = []
+    for i in range(rows_count):
+        for j in range(columns_count):
+            count = 0
+            for k in range(rows_count):
+                count += (matrix_one[i][k] * matrix_two[k][j])
+            element.append(count)
+        result.append(element)
+        element = []
+    return result
+
